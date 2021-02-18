@@ -7,6 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="#">Home</a>
+                <a class="nav-item nav-link" href="deal/list.gsp">Deal</a>
             </div>
         </div>
     </nav>
