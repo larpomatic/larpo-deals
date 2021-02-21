@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">${nav_button  == empty ? 'Home' : nav_button}</a>
             </div>
         </div>
     </nav>
