@@ -9,10 +9,10 @@
 <div class="container">
     <table class="table table-striped">
         <tbody>
-            <g:form class="form-inline">
+            <g:form class="form-inline" name="search" action="list">
                 <tr>
                     <td><label class="sr-only" for="searchBar">SearchBar</label></td>
-                    <td><input type="text" class="form-control mb-2 mr-sm-2" id="searchBar" placeholder="Search by name..."></td>
+                    <td><input type="text" class="form-control mb-2 mr-sm-2" id="searchBar" placeholder="Search by name..." name="search" value="${search}"></td>
                     <td><button type="submit" class="btn btn-primary mb-2">Search</button></td>
                 </tr>
             </g:form>
@@ -28,6 +28,7 @@
                 <th class="uppercase">name</th>
                 <th class="uppercase">description</th>
                 <th class="uppercase">price</th>
+                <th>#</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +37,8 @@
                 <td><img class="col-caption" src="${d.caption}"></td>
                 <td>${d.name}</td>
                 <td>${d.description}</td>
-                <td>${d.price}</td>
+                <td>${d.price}€</td>
+                <td><button type="submit" class="btn btn-secondary">ADD</button></td>
             </tr>
         </g:each>
         </tbody>
