@@ -10,4 +10,9 @@ class DealController
 
         [deals: deals]
     }
+
+    def show
+    {
+        [deal: Deal.get(params.id)]
+    }
 }

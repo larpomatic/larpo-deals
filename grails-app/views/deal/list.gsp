@@ -8,13 +8,27 @@
 
 <div class="container">
     <table class="table table-striped">
+        <tbody>
+            <g:form class="form-inline">
+                <tr>
+                    <td><label class="sr-only" for="searchBar">SearchBar</label></td>
+                    <td><input type="text" class="form-control mb-2 mr-sm-2" id="searchBar" placeholder="Search by name..."></td>
+                    <td><button type="submit" class="btn btn-primary mb-2">Search</button></td>
+                </tr>
+            </g:form>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table table-striped">
         <thead>
-        <tr>
-            <th class="uppercase">caption</th>
-            <th class="uppercase">name</th>
-            <th class="uppercase">description</th>
-            <th class="uppercase">price</th>
-        </tr>
+            <tr>
+                <th class="uppercase">caption</th>
+                <th class="uppercase">name</th>
+                <th class="uppercase">description</th>
+                <th class="uppercase">price</th>
+            </tr>
         </thead>
         <tbody>
         <g:each in="${deals}" var="d">
