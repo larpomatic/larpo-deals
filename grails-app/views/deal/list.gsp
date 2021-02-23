@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <g:set var="nav_button" value="Deal" scope="request"/>
+    <%-- <g:set var="nav_button" value="Deal" scope="request"/> --%>
     <meta name="layout" content="main"/>
 </head>
 
