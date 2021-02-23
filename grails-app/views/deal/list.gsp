@@ -25,6 +25,15 @@
         </tr>
         </thead>
         <tbody>
+        <g:form action="list">
+
+            <div class="input-group mb-2 mr-sm-2">
+           <label class="sr-only" for="inlineFormInputName2">name</label>
+           <input type="text" name="search" value="${search}" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2">
+           <button type="submit" class="btn btn-primary mb-2">Search by name</button>
+            </div>
+        </g:form>
+
             <g:each in="${deals}" var="d">
                 <tr>
                     <td><img src=${d.caption}></td>
