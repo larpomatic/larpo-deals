@@ -7,6 +7,7 @@ class DealController
    def list(params)
     {
         // List<Deal> deals = Deal.list(params)
+        println("Hello World")
         def c = Deal.createCriteria()
         def deals = c.list()
         {
