@@ -3,15 +3,20 @@ package larpo.deals
 class Cart {
 
     String name
-    List<Deal> deals
     Date dateCreated
+
+    static hasMany = [deals: Deal]
+
+    static mapping = {
+        deals cascade: 'all-delete-orphan'
+    }
 
     static constraints = {
     }
 
-    Cart(String name, Deal deal, Date dateCreated) {
+    Cart(String name, Date dateCreated, Deal deal) {
         this.name = name
-        this.deals = [deal]
         this.dateCreated = dateCreated
+        deals.add(deal)
     }
 }

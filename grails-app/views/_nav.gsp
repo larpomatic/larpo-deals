@@ -8,6 +8,7 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="/">Home</a>
                 <a class="nav-item nav-link" href="/deal/list">Deal</a>
+                <a class="nav-item nav-link" href="/cart/list">Cart</a>
             </div>
         </div>
     </nav>
