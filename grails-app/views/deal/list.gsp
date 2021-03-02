@@ -25,6 +25,20 @@
 
 <!--
 #################################
+############ SEARCH #############
+#################################
+-->
+<g:form action="list">
+    <form class="form-inline">
+        <label class="sr-only" for="inlineFormInputName2">Name</label>
+        <input type="text" name="userSearch" value="${userSearch}" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search by name...">
+
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+</g:form>
+
+<!--
+#################################
 ######## ARRAY OF DEALS #########
 #################################
 -->
