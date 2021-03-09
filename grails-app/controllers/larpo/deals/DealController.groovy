@@ -2,8 +2,16 @@ package larpo.deals
 
 class DealController {
     def list() {
-        List<Deal> deals = Deal.list()
-
-        [deals: deals]
+        if (params.search) {
+            def c = Deal.createCriteria()
+            def deals = c.list
+                    {
+                        like('name', '%' + params.search + '%')
+                    }
+            [deals: deals]
+        }
+        else {
+            [deals: Deal.list()]
+        }
     }
 }
