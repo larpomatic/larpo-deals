@@ -15,13 +15,51 @@
 </head>
 <g:include view="_nav.gsp"/>
 <body>
+
+<g:if test="${session.cart!=null}">
 <div class="container">
+  <h1>Current Cart</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="uppercase">name</th>
+      <th class="uppercase">Deal</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+
+      <tr>
+        <td>${session.cart.name}</td>
+        <td>
+          <ol>
+            <g:each in="${session.cart.deals}" var="d">
+              <li>${d.name}</li>
+            </g:each>
+          </ol>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</g:if>
+
+
+
+
+
+<div class="container">
+  <h1>Cart list</h1>
   <table class="table table-striped">
     <thead>
     <tr>
       <th class="uppercase">creation</th>
       <th class="uppercase">name</th>
       <th class="uppercase">Deal</th>
+
     </tr>
     </thead>
     <tbody>

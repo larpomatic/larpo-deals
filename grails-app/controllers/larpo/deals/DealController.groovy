@@ -19,4 +19,5 @@ class DealController {
             [deals: deals]
 
     }
+
 }

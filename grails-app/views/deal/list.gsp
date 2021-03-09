@@ -22,6 +22,7 @@
             <th class="uppercase">name</th>
             <th class="uppercase">Description</th>
             <th class="uppercase">price</th>
+            <th class="uppercase">#</th>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +41,12 @@
                     <td>${d.name}</td>
                     <td>${d.description}</td>
                     <td>${d.price}</td>
+                    <td>
+                        <g:form controller="Cart" action="addDealToCart">
+                            <label class="sr-only" for="inlineFormInputName2">name</label>
+                            <button name="dealToAdd" value="${d.id}" type="submit" class="btn btn-primary mb-2">ADD</button>
+                        </g:form>
+                    </td>
                 </tr>
             </g:each>
         </tbody>
