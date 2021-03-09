@@ -15,6 +15,36 @@
 </head>
 <g:include view="_nav.gsp"/>
 <body>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="uppercase">creation</th>
+      <th class="uppercase">name</th>
+      <th class="uppercase">Deal</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <g:each in="${carts}" var="c">
+      <tr>
+        <td>${c.dateCreated.format("dd/MM/yyyy hh:mm")}</td>
+        <td>${c.name}</td>
+      <td>
+        <ol>
+          <g:each in="${c.deals}" var="d">
+            <li>${d.name}</li>
+          </g:each>
+        </ol>
+      </td>
+
+      </tr>
+    </g:each>
+    </tbody>
+  </table>
+</div>
+
 
 </body>
 </html>

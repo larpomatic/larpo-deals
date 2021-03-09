@@ -9,7 +9,9 @@ class CartController {
 
 
     def list() {
+        List<Cart> carts = Cart.list()
 
+        [carts: carts]
     }
 
 }

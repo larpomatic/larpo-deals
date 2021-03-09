@@ -14,9 +14,12 @@ class Cart {
     static constraints = {
     }
 
-    Cart(String name, Date dateCreated, Deal deal) {
+    Cart(String name, Date dateCreated, List<Deal> AllDeal) {
         this.name = name
         this.dateCreated = dateCreated
-        deals.add(deal)
+        deals = []
+        for (deal in AllDeal) {
+            deals.add(deal)
+        }
     }
 }
