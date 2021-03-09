@@ -15,5 +15,9 @@ class Deal {
     }
 
     static constraints = {
+        caption size: 0..255
+        name size: 0..255
+        description size: 0..255
+        price min: 0, max: 10000
     }
 }

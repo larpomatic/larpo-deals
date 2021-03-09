@@ -7,7 +7,7 @@ class Cart {
 
     static hasMany = [deals: Deal]
     static mapping = {
-        deals cascade: 'all-delete-orphan'
+        deals cascade: 'none'
     }
 
     Cart(String name, Date dateCreated) {
@@ -16,5 +16,6 @@ class Cart {
     }
 
     static constraints = {
+        name size: 0..255
     }
 }

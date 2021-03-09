@@ -1,5 +1,4 @@
 package larpo.deals
-import groovy.json.*
 
 import org.grails.datastore.mapping.query.api.BuildableCriteria
 
@@ -7,9 +6,8 @@ class CartController {
 
     def list() {
         Cart[] carts = Cart.list()
-        for (cart in carts){
-            cart.deals.sort{it.id}
-        }
+
+        //TODO sort the list
 
         [carts: carts]
     }
