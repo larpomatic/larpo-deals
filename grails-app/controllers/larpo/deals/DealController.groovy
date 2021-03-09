@@ -16,7 +16,7 @@ class DealController {
             BuildableCriteria c = Deal.createCriteria()
 
             deals = c.list{
-                    eq("name", userSearch)
+                    like("name", userSearch + "%")
             }
         }
         else {

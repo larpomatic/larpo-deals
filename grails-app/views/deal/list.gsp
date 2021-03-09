@@ -46,19 +46,30 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th class="uppercase">CAPTION</th>
-            <th class="uppercase">NAME</th>
-            <th class="uppercase">DESCRIPTION</th>
-            <th class="uppercase">PRICE</th>
+            <th>CAPTION</th>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th>PRICE</th>
+            <th>ADD</th>
         </tr>
         </thead>
         <tbody>
-        <g:each in="${deals}" var="d">
+        <g:each in="${deals}" var="deal">
             <tr>
-                <td><img class="col-caption" src="${d.caption}" alt="${d.name} image"/></td>
-                <td>${d.name}</td>
-                <td>${d.description}</td>
-                <td>${d.price + "€"}</td>
+                <td><img class="col-caption" src="${deal.caption}" alt="${deal.name} image"/></td>
+                <td>${deal.name}</td>
+                <td>${deal.description}</td>
+                <td>${deal.price + "€"}</td>
+                <td>
+                    <g:form controller="cart" action="addDealToCart">
+                        <form class="form-inline">
+                            <button type="submit"
+                                    name="dealId"
+                                    value="${deal.id}"
+                                    class="btn btn-primary mb-2">ADD</button>
+                        </form>
+                    </g:form>
+                </td>
             </tr>
         </g:each>
         </tbody>
