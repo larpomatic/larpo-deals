@@ -17,25 +17,41 @@ class CartController {
             session['currentCart'] = new Cart("current cart", null)
         }
 
-        if (!dealInCart(params.dealId as long)) {
-            Cart currentCart = session['currentCart']
-            currentCart.addToDeals(getDeal(params.dealId))
+        Long dealId = params.dealId as long
+        Cart currentCart = session['currentCart']
+
+        if (dealId <= 0 || dealId >= Deal.list().size()){
+            throw new ArrayIndexOutOfBoundsException("This dealId does not exist")
         }
 
-        [currentCart: session['currentCart']]
+        if (!dealInCart(dealId)) {
+            currentCart.addToDeals(getDeal(dealId))
+        }
+
+        [currentCart: currentCart]
         redirect action: 'list', controller: 'deal'
     }
 
-    private Deal getDeal(String dealId){
+    private Deal getDeal(Long dealId){
         BuildableCriteria c = Deal.createCriteria()
 
-        return c.list{
-            eq("id", dealId as long)
-        }[0]
+        Deal[] deals = c.list {
+            eq("id", dealId)
+        }
+
+        if (deals.size() <= 0){
+            throw new ArrayIndexOutOfBoundsException("This dealId does not exist")
+        }
+
+        return deals[0]
     }
 
     private Boolean dealInCart(Long dealId){
         Cart currentCart = session['currentCart']
+
+        if (currentCart == null){
+            return false
+        }
 
         for (deal in currentCart.getDeals()){
             if (deal.id == dealId){
