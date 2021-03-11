@@ -10,6 +10,8 @@
                 <a class="nav-item nav-link" href="/">Home</a>
                 <a class="nav-item nav-link" href="/larpo-deals/deal/list">Deal</a>
                 <a class="nav-item nav-link" href="/larpo-deals/cart/list">Cart</a>
+
+                <a class="nav-item nav-link" href="/larpo-deals/cart/addDealToCart/1">Test</a>
             </div>
         </div>
     </nav>

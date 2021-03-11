@@ -6,6 +6,10 @@
 
 <body>
 
+<g:if test="${flash.message}">
+    <div class="alert alert-error" style="display: block">${flash.message}</div>
+</g:if>
+
 <div class="container">
     <table class="table table-striped">
         <tbody>
@@ -38,7 +42,12 @@
                     <td>${d.name}</td>
                     <td>${d.description}</td>
                     <td>${d.price}€</td>
-                    <td><button type="submit" class="btn btn-secondary">ADD</button></td>
+                    <td>
+                        <g:form name="addDealToCart" controller="cart" action="addDealToCart" id="${d.id}">
+                            <button type="submit" class="btn btn-secondary" id="addDealToCartButton"
+                                    name="addDealToCart"  value="${addDealToCart}">ADD</button>
+                        </g:form>
+                    </td>
                 </tr>
             </g:each>
         </tbody>
