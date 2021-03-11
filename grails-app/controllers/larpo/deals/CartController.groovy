@@ -2,8 +2,7 @@ package larpo.deals
 
 class CartController {
     def list() {
-        def cart = session['currentCart']
-        [carts: cart]
+        [carts: session['currentCart']]
     }
 
     def addDealToCart() {
@@ -11,27 +10,27 @@ class CartController {
             session['currentCart'] = new Cart("Current Cart", new Date())
         }
 
-        if (!isDealInCart(params.dealId.replaceAll("[^0-9]", ""))) {
+        if (!isDealInCart(params.dealId as long)) {
             Cart currentCart = session['currentCart']
-            currentCart.addToDeals(getDeal(params.dealId.replaceAll("[^0-9]", "")))
+            currentCart.addToDeals(getDeal(params.dealId as long))
         }
 
         redirect action: 'list', controller: 'deal'
     }
 
-    private Deal getDeal(String dealId) {
+    private Deal getDeal(long dealId) {
         def c = Deal.createCriteria()
 
         return c.list() {
-            eq("id", dealId as long)
+            eq("id", dealId)
         }[0]
     }
 
-    private Boolean isDealInCart(String dealId) {
+    private Boolean isDealInCart(long dealId) {
         Cart currentCart = session['currentCart']
 
         for (deal in currentCart.deals) {
-            if (deal.id == dealId as long) {
+            if (deal.id == dealId) {
                 return true
             }
         }

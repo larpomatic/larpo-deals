@@ -39,7 +39,7 @@
                 <td>${d.price}</td>
                 <td>
                     <g:form name="AddForm" url="[action:'addDealToCart', controller:'cart']" class="d-flex">
-                        <button name="dealId" class="btn btn-secondary" type="submit">ADD</button>
+                        <button name="dealId" class="btn btn-secondary" type="submit" value="${d.id}">ADD</button>
                     </g:form>
                 </td>
             </tr>
