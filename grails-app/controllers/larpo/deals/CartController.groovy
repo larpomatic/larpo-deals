@@ -26,6 +26,9 @@ class CartController {
 
         if (!dealInCart(dealId)) {
             currentCart.addToDeals(getDeal(dealId))
+            g.message(code: "The deal was added to your cart")
+        } else {
+            flash.message = "The deal was already into your cart"
         }
 
         [currentCart: currentCart]

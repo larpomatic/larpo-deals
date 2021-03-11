@@ -50,7 +50,7 @@
             <th>NAME</th>
             <th>DESCRIPTION</th>
             <th>PRICE</th>
-            <th>ADD</th>
+            <th>#</th>
         </tr>
         </thead>
         <tbody>
