@@ -18,11 +18,16 @@
         </tr>
         </thead>
         <tbody>
-        <g:each in="${cart}" var="d">
+        <g:each in="${carts}" var="c">
             <tr>
-                <td>${d.dateCreated}</td>
-                <td>${d.name}</td>
-                <td>${d.deals}</td>
+                <td>${c.dateCreated}</td>
+                <td>${c.name}</td>
+                <td>
+                    <g:each in="${c.deals}" var="d">
+                        ${d.name}
+                        <br/>
+                    </g:each>
+                </td>
             </tr>
         </g:each>
         </tbody>

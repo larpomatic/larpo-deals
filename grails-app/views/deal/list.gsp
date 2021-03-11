@@ -27,6 +27,7 @@
             <th class="uppercase">NAME</th>
             <th class="uppercase">DESCRIPTION</th>
             <th class="uppercase">PRICE</th>
+            <th class="uppercase">#</th>
         </tr>
         </thead>
         <tbody>
@@ -36,6 +37,11 @@
                 <td>${d.name}</td>
                 <td>${d.description}</td>
                 <td>${d.price}</td>
+                <td>
+                    <g:form name="AddForm" url="[action:'addDealToCart', controller:'cart']" class="d-flex">
+                        <button name="dealId" class="btn btn-secondary" type="submit">ADD</button>
+                    </g:form>
+                </td>
             </tr>
         </g:each>
         </tbody>

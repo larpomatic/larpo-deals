@@ -4,12 +4,12 @@ class Cart {
     static constraints = {}
 
     String name
-    List<Deal> deals
     Date dateCreated
 
-    Cart(String name, List<Deal> deals, Date dateCreated) {
+    static hasMany = [deals: Deal]
+
+    Cart(String name, Date dateCreated) {
         this.name = name
-        this.deals = deals
         this.dateCreated = dateCreated
     }
 }
