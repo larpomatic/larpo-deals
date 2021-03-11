@@ -45,6 +45,12 @@
     </tbody>
   </table>
 </div>
+
+  <g:form action="SaveCart">
+    <button type="submit" class="btn btn-primary mb-2">Save Cart</button>
+  </g:form>
+
+
 </g:if>
 
 

@@ -27,4 +27,12 @@ class CartController {
         [carts: carts]
     }
 
+    def SaveCart() {
+        session.cart.save(failOnError: true)
+        session.cart = null
+
+        redirect(controller: "Cart", action: "list")
+    }
+
+
 }
