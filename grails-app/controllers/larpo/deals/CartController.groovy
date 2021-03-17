@@ -20,19 +20,28 @@ class CartController {
         Long dealId = params.dealId as long
         Cart currentCart = session['currentCart']
 
-        if (dealId <= 0 || dealId >= Deal.list().size()){
-            throw new ArrayIndexOutOfBoundsException("This dealId does not exist")
+        if (dealId <= 0 || dealId > Deal.list().size()){
+            throw new ArrayIndexOutOfBoundsException("This dealId does not exist: " + dealId)
         }
 
         if (!dealInCart(dealId)) {
             currentCart.addToDeals(getDeal(dealId))
-            g.message(code: "The deal was added to your cart")
+            //TODO message
+            g.message(message: "The deal was added to your cart")
         } else {
             flash.message = "The deal was already into your cart"
         }
 
         [currentCart: currentCart]
         redirect action: 'list', controller: 'deal'
+    }
+
+    def save() {
+        session["currentCart"].save(failOnError: true, flush: true)
+
+        session["currentCart"] = null
+
+        redirect action: 'list', controller: 'cart'
     }
 
     private Deal getDeal(Long dealId){
@@ -43,7 +52,7 @@ class CartController {
         }
 
         if (deals.size() <= 0){
-            throw new ArrayIndexOutOfBoundsException("This dealId does not exist")
+            throw new ArrayIndexOutOfBoundsException("This dealId does not exist: " + dealId)
         }
 
         return deals[0]

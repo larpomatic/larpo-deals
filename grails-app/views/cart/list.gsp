@@ -52,6 +52,11 @@
                 </tr>
             </tbody>
         </table>
+        <g:form controller="cart" action="save">
+            <form class="form-inline">
+                <button type="submit" class="btn btn-primary mb-2">SAVE</button>
+            </form>
+        </g:form>
     </div>
 </g:if>
 <br><br>
@@ -76,7 +81,7 @@
                 <td>${cart.dateCreated.format("dd/mm/yyyy hh:mm")}</td>
                 <td>${cart.name}</td>
                 <td>
-                    <g:each in="${cart.getDeals()}" var="deal">
+                    <g:each in="${cart.deals}" var="deal">
                         ${deal.id + ". " + deal.name}
                         <br>
                     </g:each>
