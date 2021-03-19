@@ -39,6 +39,16 @@
 
 <!--
 #################################
+########### CART COST ###########
+#################################
+-->
+
+<div class="container">
+    <div class="p-3 mb-2 bg-dark text-white">Cart Cost: ${cost}$</div>
+</div>
+
+<!--
+#################################
 ######## ARRAY OF DEALS #########
 #################################
 -->
@@ -59,7 +69,7 @@
                 <td><img class="col-caption" src="${deal.caption}" alt="${deal.name} image"/></td>
                 <td>${deal.name}</td>
                 <td>${deal.description}</td>
-                <td>${deal.price + "€"}</td>
+                <td>${deal.price}$</td>
                 <td>
                     <g:form controller="cart" action="addDealToCart">
                         <form class="form-inline">

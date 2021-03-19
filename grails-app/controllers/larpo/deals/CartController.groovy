@@ -4,12 +4,16 @@ import org.grails.datastore.mapping.query.api.BuildableCriteria
 
 class CartController {
 
+    CartService cartService
+
     def list() {
         Cart[] carts = Cart.list()
 
         //TODO sort the list
 
-        [carts: carts]
+        Integer cost = cartService.cost(session['currentCart'] as Cart)
+
+        [carts: carts, cost: cost]
     }
 
     def addDealToCart() {

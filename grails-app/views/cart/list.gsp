@@ -38,6 +38,7 @@
             <tr>
                 <th>NAME</th>
                 <th>DEALS</th>
+                <th>PRICE</th>
             </tr>
             </thead>
             <tbody>
@@ -49,6 +50,7 @@
                             <br>
                         </g:each>
                     </td>
+                    <td>${cost}$</td>
                 </tr>
             </tbody>
         </table>
