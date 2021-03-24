@@ -7,13 +7,41 @@
 <body>
 
 <div class="container">
+    <h3><span class="badge badge-primary">Current Cart</span></h3>
     <table class="table table-striped">
         <thead>
-        <tr>
-            <th class="uppercase">CREATION</th>
-            <th class="uppercase">NAME</th>
-            <th class="uppercase">DEAL</th>
-        </tr>
+            <tr>
+                <th class="uppercase">DEALS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol>
+                        <g:each in="${CurrentCart.deals}" var="cd">
+                            <li>${cd.name}</li>
+                        </g:each>
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <g:form class="form-inline" name="SaveCart" action="save" controller="cart">
+            <td><label class="sr-only" for="SaveCart">SaveCart</label></td>
+            <td><input type="text" class="form-control mb-2 mr-sm-2" id="searchBar" placeholder="Cart name..." name="SaveCart" value="${SaveCart}"></td>
+            <td><button type="submit" class="btn btn-primary mb-2">save</button></td>
+    </g:form>
+</div>
+
+<div class="container">
+    <h3><span class="badge badge-primary">Cart list</span></h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="uppercase">CREATION</th>
+                <th class="uppercase">NAME</th>
+                <th class="uppercase">DEAL</th>
+            </tr>
         </thead>
         <tbody>
             <g:each in="${carts}" var="c">

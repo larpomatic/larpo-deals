@@ -14,8 +14,13 @@ class CartController {
 
     def list()
     {
+        Application.NewCurrentCart(session)
         List<Cart> carts = Cart.list()
-        [carts: carts]
+        // List<Cart> carts = Cart.findAll{name != "Current Cart"}//.list()
+
+        // def CurrentCart = Cart.findByName("Current Cart")
+
+        [carts: carts, CurrentCart: session.CurrentCart]
     }
 
     def addDealToCart(Integer id)
@@ -26,7 +31,7 @@ class CartController {
         Deal deal = Deal.get(id)
 
         Boolean b = Boolean.TRUE
-        for (d in session.currentCart.deals)
+        for (d in session.CurrentCart.deals)
             if (deal.id == d.id)
             {
                 println("already in Current Cart")
@@ -36,12 +41,22 @@ class CartController {
 
         if (b)
         {
-            session.currentCart.addToDeals(deal).save(failOnError: true, flush: true)
+            session.CurrentCart.addToDeals(deal)//.save(failOnError: true, flush: true)
             flash.message = "Deal added to Current Cart"
         }
 
         redirect(url: "/larpo-deals/deal/list")
 
+
         [deal: deal]
+    }
+
+    def save(params)
+    {
+        Cart NewCart = new Cart(new Date(), params.SaveCart)
+        NewCart.deals = session.CurrentCart.deals
+        NewCart.save(failOnError: true, flush: true)
+        redirect(url: "/larpo-deals/cart/list")
+        session["CurrentCart"] = new Cart(new Date(), "Current Cart")//.save(failOnError: true, flush: true)
     }
 }

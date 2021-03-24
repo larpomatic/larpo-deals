@@ -35,9 +35,9 @@
             <tr>
                 <td>
                     <ol>
-           <g:each in="${CurrentCart.deals}" var="cd">
-                <li>${cd.name}</li>
-           </g:each>
+                       <g:each in="${CurrentCart.deals}" var="cd">
+                            <li>${cd.name}</li>
+                       </g:each>
                     </ol>
                 </td>
             </tr>

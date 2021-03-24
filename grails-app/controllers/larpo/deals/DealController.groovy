@@ -21,7 +21,8 @@ class DealController
         }
         // println(deals) //FIME DEBUG PRINT
 
-        def CurrentCart = Cart.findByName("Current Cart")
-        [deals: deals, CurrentCart: CurrentCart]
+        //def CurrentCart = Cart.findByName("Current Cart")
+
+        [deals: deals, CurrentCart: session.CurrentCart]
     }
 }
