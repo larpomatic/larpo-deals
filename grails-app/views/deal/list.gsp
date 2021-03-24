@@ -28,6 +28,27 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th class="uppercase">CURRENT CART</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol>
+           <g:each in="${CurrentCart.deals}" var="cd">
+                <li>${cd.name}</li>
+           </g:each>
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
                 <th class="uppercase">CAPTION</th>
                 <th class="uppercase">NAME</th>
                 <th class="uppercase">DESCRIPTION</th>

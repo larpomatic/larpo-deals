@@ -20,8 +20,9 @@ class CartController {
 
     def addDealToCart(Integer id)
     {
-        if (session.isNew())
-            session["currentCart"] = new Cart(new Date(), "Current Cart").save(failOnError: true, flush: true)
+        /*if (session.isNew())
+            session["currentCart"] = new Cart(new Date(), "Current Cart").save(failOnError: true, flush: true)*/
+        Application.NewCurrentCart(session)
         Deal deal = Deal.get(id)
 
         Boolean b = Boolean.TRUE

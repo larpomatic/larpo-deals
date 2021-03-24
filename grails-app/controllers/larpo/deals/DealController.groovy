@@ -7,6 +7,7 @@ class DealController
    // def list()
    def list(params)
     {
+        Application.NewCurrentCart(session)
         // List<Deal> deals = Deal.list(params)
         // println("Hello World")
         def c = Deal.createCriteria()
@@ -19,6 +20,8 @@ class DealController
             }
         }
         // println(deals) //FIME DEBUG PRINT
-        [deals: deals]
+
+        def CurrentCart = Cart.findByName("Current Cart")
+        [deals: deals, CurrentCart: CurrentCart]
     }
 }
