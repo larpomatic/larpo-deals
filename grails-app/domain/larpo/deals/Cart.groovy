@@ -5,6 +5,7 @@ class Cart
     String name
     static hasMany = [deals: Deal]
     Date dateCreated
+    Integer cost
 
     static mapping =
     {
@@ -19,5 +20,6 @@ class Cart
     {
         this.name = name
         this.dateCreated = dateCreated
+        this.cost = 0
     }
 }

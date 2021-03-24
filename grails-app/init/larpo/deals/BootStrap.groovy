@@ -17,9 +17,11 @@ class BootStrap {
         Date date = new Date().parse("dd.MM.yyy HH:mm:ss", "28.02.2014 17:52:00")
         Cart LovelyCart = new Cart(date, "Lovely Cart").addToDeals(BusDeal1).addToDeals(TruckDeal).save(failOnError: true)
         LovelyCart.dateCreated = date
+        LovelyCart.cost = CartService.cost(LovelyCart)
         LovelyCart.save(failOnError: true)
         Cart AmazingCart = new Cart(date, "Amazing Cart").addToDeals(BusDeal2).save(failOnError: true)
         AmazingCart.dateCreated = date
+        AmazingCart.cost = CartService.cost(AmazingCart)
         AmazingCart.save(failOnError: true)
     }
 

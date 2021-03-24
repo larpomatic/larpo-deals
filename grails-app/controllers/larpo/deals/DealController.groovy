@@ -22,7 +22,7 @@ class DealController
         // println(deals) //FIME DEBUG PRINT
 
         //def CurrentCart = Cart.findByName("Current Cart")
-
-        [deals: deals, CurrentCart: session.CurrentCart]
+        Cart CurrentCart = session.CurrentCart
+        [deals: deals, CurrentCart: CurrentCart, cost: CartService.cost(CurrentCart)]
     }
 }

@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 <th class="uppercase">DEALS</th>
+                <th class="uppercase">COST</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                         </g:each>
                     </ol>
                 </td>
+                <td>${cost}€</td>
             </tr>
         </tbody>
     </table>
@@ -45,6 +47,7 @@
                 <th class="uppercase">CREATION</th>
                 <th class="uppercase">NAME</th>
                 <th class="uppercase">DEAL</th>
+                <th class="uppercase">COST</th>
             </tr>
         </thead>
         <tbody>
@@ -60,6 +63,7 @@
                             </g:each>
                         </ol>
                     </td>
+                    <td>${c.cost}€</td>
                 </tr>
             </g:each>
         </tbody>

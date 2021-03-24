@@ -14,13 +14,12 @@ class CartController {
 
     def list()
     {
+        // def cartservice = new CartService()
         Application.NewCurrentCart(session)
         List<Cart> carts = Cart.list()
-        // List<Cart> carts = Cart.findAll{name != "Current Cart"}//.list()
-
-        // def CurrentCart = Cart.findByName("Current Cart")
-
-        [carts: carts, CurrentCart: session.CurrentCart]
+        //Integer price = CartService.cost(new Cart())
+        Cart CurrentCart = session.CurrentCart
+        [carts: carts, CurrentCart: CurrentCart, cost: CartService.cost(CurrentCart)]
     }
 
     def addDealToCart(Integer id)
