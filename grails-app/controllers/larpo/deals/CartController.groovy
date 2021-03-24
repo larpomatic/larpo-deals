@@ -56,6 +56,7 @@ class CartController {
         Cart NewCart = new Cart(new Date(), params.SaveCart)
         NewCart.deals = session.CurrentCart.deals
         NewCart.save(failOnError: true, flush: true)
+        flash.message = "Cart saved"
         redirect(url: "/larpo-deals/cart/list")
         session["CurrentCart"] = new Cart(new Date(), "Current Cart")//.save(failOnError: true, flush: true)
     }

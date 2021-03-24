@@ -6,6 +6,10 @@
 
 <body>
 
+<g:if test="${flash.message}">
+    <div class="alert alert-error" style="display: block">${flash.message}</div>
+</g:if>
+
 <div class="container">
     <h3><span class="badge badge-primary">Current Cart</span></h3>
     <table class="table table-striped">
