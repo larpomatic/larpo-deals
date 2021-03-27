@@ -1,8 +1,6 @@
 package larpo.deals
 
 class Deal {
-    static constraints = {}
-
     String name
     String description
     String caption
@@ -14,4 +12,6 @@ class Deal {
         this.caption = caption
         this.price = price
     }
+
+    static constraints = {}
 }

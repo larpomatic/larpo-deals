@@ -2,7 +2,8 @@ package larpo.deals
 
 class CartController {
     def list() {
-        [carts: session['currentCart']]
+        [currentCart: session['currentCart']]
+        [carts: Cart.list()]
     }
 
     def addDealToCart() {
@@ -16,6 +17,12 @@ class CartController {
         }
 
         redirect action: 'list', controller: 'deal'
+    }
+
+    def save() {
+        Cart current = session['currentCart']
+        current.save(failOnError: true)
+        session['currentCart'] = null
     }
 
     private Deal getDeal(long dealId) {

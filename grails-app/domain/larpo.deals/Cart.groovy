@@ -1,8 +1,6 @@
 package larpo.deals
 
 class Cart {
-    static constraints = {}
-
     String name
     Date dateCreated
 
@@ -12,4 +10,6 @@ class Cart {
         this.name = name
         this.dateCreated = dateCreated
     }
+
+    static constraints = {}
 }

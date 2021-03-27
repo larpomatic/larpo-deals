@@ -1,18 +1,18 @@
 buildscript {
     ext {
         bootstrapFramework = [
-            version             : "4.0.0"
-        //    cssPath             : "grails-app/assets/stylesheets",
-        //    jsPath              : "grails-app/assets/javascripts",
-        //    useIndividualJs     : false,
-        //    useLess             : false,
-        //    invalidVersionFails : false,
-        //    fontAwesome : [
-        //       install             : false,
-        //       version             : "4.3.0",
-        //       useLess             : false,
-        //       invalidVersionFails : false
-        //    ]
+                version             : "4.0.0"
+                //    cssPath             : "grails-app/assets/stylesheets",
+                //    jsPath              : "grails-app/assets/javascripts",
+                //    useIndividualJs     : false,
+                //    useLess             : false,
+                //    invalidVersionFails : false,
+                //    fontAwesome : [
+                //       install             : false,
+                //       version             : "4.3.0",
+                //       useLess             : false,
+                //       invalidVersionFails : false
+                //    ]
         ]
     }
     repositories {
@@ -49,6 +49,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.16'
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
@@ -75,8 +76,8 @@ dependencies {
     runtime "org.glassfish.web:el-impl:2.1.2-b03"
     runtime "com.h2database:h2"
     runtime "org.apache.tomcat:tomcat-jdbc"
-    testCompile "org.grails:grails-gorm-testing-support"
-    testCompile "org.grails:grails-web-testing-support"
+    testCompile "org.grails:grails-gorm-testing-support:2.1.3"
+    testCompile "org.grails:grails-web-testing-support:2.1.3"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.6.0"
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.6.0"
