@@ -38,6 +38,7 @@
               <li>${d.name}</li>
             </g:each>
           </ol>
+          ${session.cart.price}€
         </td>
 
       </tr>
@@ -81,6 +82,7 @@
             <li>${d.name}</li>
           </g:each>
         </ol>
+        ${c.price}€
       </td>
 
       </tr>
