@@ -38,13 +38,15 @@
               <li>${d.name}</li>
             </g:each>
           </ol>
-          ${session.cart.price}€
+          price: ${cartPrice} €
         </td>
 
       </tr>
 
     </tbody>
   </table>
+
+      price: ${session.cart.price} €
 </div>
 
   <g:form action="SaveCart">

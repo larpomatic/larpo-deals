@@ -14,6 +14,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <g:include view="_nav.gsp"/>
+
+
+<g:if test="${session.message!=null}">
+
+
+</g:if>
+
+<g:if test="${session.cart!=null}">
+    <div>
+        price: ${cartPrice} €
+    </div>
+</g:if>
+
+
 <div class="container">
     <table class="table table-striped">
         <thead>

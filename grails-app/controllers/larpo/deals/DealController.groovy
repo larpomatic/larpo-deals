@@ -16,7 +16,9 @@ class DealController {
                 }
         }
 
-            [deals: deals]
+
+
+        [deals: deals, cartPrice: CartService.cost(session.cart)]
 
     }
 

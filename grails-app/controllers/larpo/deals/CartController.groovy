@@ -2,6 +2,7 @@ package larpo.deals
 
 class CartController {
 
+
     def addDealToCart() {
         if (session.cart == null)
         {
@@ -27,7 +28,12 @@ class CartController {
 
         if (!isAlreadyInDealsList) {
             session.cart.addToDeals(dealsList[0])
-            session.cart.price = session.cart.price + dealsList[0].price
+            session.cart.price = CartService.cost(session.cart)
+            session.message = "Deal add in cart"
+        }
+        else
+        {
+            session.message = "Deal already in cart"
         }
 
         redirect(controller: "Deal", action: "list")
@@ -37,7 +43,9 @@ class CartController {
     def list() {
         List<Cart> carts = Cart.list()
 
-        [carts: carts]
+
+
+        [carts: carts, cartPrice: CartService.cost(session.cart)]
     }
 
     def SaveCart() {
