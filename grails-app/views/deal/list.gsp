@@ -15,7 +15,6 @@
 </head>
 
 <body>
-
 <!--
 #################################
 ########## NAVIGATION ###########
@@ -28,32 +27,50 @@
 ############ SEARCH #############
 #################################
 -->
-<g:form action="list">
-    <form class="form-inline">
-        <label class="sr-only" for="inlineFormInputName2">Name</label>
-        <input type="text" name="userSearch" value="${userSearch}" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search by name...">
-
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
-    </form>
-</g:form>
+<div class="container">
+    <div class="p-3 mb-2 bg-light rounded border">
+        <g:form action="list">
+            <form class="form-inline">
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <div class="input-group">
+                        <input type="text" name="userSearch"
+                               value="${userSearch}" class="form-control mb-2 mr-sm-2 col-12"
+                               id="inlineFormInputName2" placeholder="Search by name...">
+                        <button type="submit" class="btn btn-primary mb-2 input-group-addon">Search</button>
+                </div>
+            </form>
+        </g:form>
+    </div>
+</div>
 
 <!--
 #################################
 ########### CART COST ###########
 #################################
 -->
-
+<br/>
 <div class="container">
-    <div class="p-3 mb-2 bg-dark text-white">Cart Cost: ${cost}$</div>
+    <div class="col">
+        <div class="p-3 bg-dark rounded text-white col-lg-2 offset-lg-10">
+            <div class="d-flex">
+                <div class="d-inline-block">
+                    Cart Cost:
+                </div>
+                <div class="d-inline-block bg-info" style="margin-left: 5px">
+                    $${cost}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
+<br/>
 <!--
 #################################
 ######## ARRAY OF DEALS #########
 #################################
 -->
 <div class="container">
-    <table class="table table-striped">
+    <table class="table border table-striped">
         <thead>
         <tr>
             <th>CAPTION</th>
@@ -69,7 +86,7 @@
                 <td><img class="col-caption" src="${deal.caption}" alt="${deal.name} image"/></td>
                 <td>${deal.name}</td>
                 <td>${deal.description}</td>
-                <td>${deal.price}$</td>
+                <td>$${deal.price}</td>
                 <td>
                     <g:form controller="cart" action="addDealToCart">
                         <form class="form-inline">

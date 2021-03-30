@@ -3,17 +3,12 @@ package larpo.deals
 import org.grails.datastore.mapping.query.api.BuildableCriteria
 
 class CartController {
-
-    CartService cartService
-
     def list() {
         Cart[] carts = Cart.list()
 
-        //TODO sort the list
+        Integer cost = CartService.cost(session['currentCart'] as Cart)
 
-        Integer cost = cartService.cost(session['currentCart'] as Cart)
-
-        [carts: carts, cost: cost]
+        [carts: carts, cost: cost, nbDeals: CartService.getNbDeals(session["currentCart"] as Cart)]
     }
 
     def addDealToCart() {
@@ -22,7 +17,7 @@ class CartController {
         }
 
         Long dealId = params.dealId as long
-        Cart currentCart = session['currentCart']
+        Cart currentCart = session['currentCart'] as Cart
 
         if (dealId <= 0 || dealId > Deal.list().size()){
             throw new ArrayIndexOutOfBoundsException("This dealId does not exist: " + dealId)
@@ -30,11 +25,10 @@ class CartController {
 
         if (!dealInCart(dealId)) {
             currentCart.addToDeals(getDeal(dealId))
-            //TODO message
-            g.message(message: "The deal was added to your cart")
-        } else {
-            flash.message = "The deal was already into your cart"
         }
+
+        currentCart.lutNbDeals[dealId.toInteger()] += 1
+        //TODO message
 
         [currentCart: currentCart]
         redirect action: 'list', controller: 'deal'
@@ -63,7 +57,7 @@ class CartController {
     }
 
     private Boolean dealInCart(Long dealId){
-        Cart currentCart = session['currentCart']
+        Cart currentCart = session['currentCart'] as Cart
 
         if (currentCart == null){
             return false

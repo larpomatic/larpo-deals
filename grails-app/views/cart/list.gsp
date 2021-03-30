@@ -32,8 +32,8 @@
 -->
 <g:if test="${session['currentCart'] != null && session['currentCart'].getDeals()[0] != null}">
     <div class="container">
-        <div class="btn bg-info text-white font-weight-bold">Current cart</div>
-        <table class="table table-striped">
+        <div class="btn bg-info text-white font-weight-bold rounded border" style="cursor: default">Current cart (${nbDeals})</div>
+        <table class="table table-striped border">
             <thead>
             <tr>
                 <th>NAME</th>
@@ -46,11 +46,11 @@
                     <td>${session['currentCart'].name}</td>
                     <td>
                         <g:each in="${session['currentCart'].getDeals()}" var="deal">
-                            ${deal.id + ". " + deal.name}
+                            ${deal.name + " x " + session['currentCart'].getLutNbDeals()[deal.id as Integer]}
                             <br>
                         </g:each>
                     </td>
-                    <td>${cost}$</td>
+                    <td>$${cost}</td>
                 </tr>
             </tbody>
         </table>
@@ -68,11 +68,11 @@
 #################################
 -->
 <div class="container">
-    <div class="btn bg-info text-white font-weight-bold">Cart list</div>
-    <table class="table table-striped">
+    <div class="btn bg-info text-white font-weight-bold" style="cursor: default">Cart list</div>
+    <table class="table table-striped border">
         <thead>
         <tr>
-            <th>CREATION</th>
+            <th>CREATION DATE</th>
             <th>NAME</th>
             <th>DEALS</th>
         </tr>
@@ -84,7 +84,7 @@
                 <td>${cart.name}</td>
                 <td>
                     <g:each in="${cart.deals}" var="deal">
-                        ${deal.id + ". " + deal.name}
+                        ${deal.name + " x " + cart.getLutNbDeals()[deal.id as Integer]}
                         <br>
                     </g:each>
                 </td>
