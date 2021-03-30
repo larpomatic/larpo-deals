@@ -41,6 +41,7 @@ class CartController {
     {
         Cart NewCart = new Cart(new Date(), params.SaveCart)
         NewCart.deals = session.CurrentCart.deals
+        NewCart.cost = CartService.cost(NewCart)
         NewCart.save(failOnError: true, flush: true)
         flash.message = "Cart saved"
         redirect(url: "/larpo-deals/cart/list")
