@@ -15,6 +15,7 @@ class UrlMappings {
             }
         }
 
+        "/larpo-deals/test"(view:"/test")
 
         "/"(view:"/index")
         "500"(view:'/error')

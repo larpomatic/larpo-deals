@@ -16,11 +16,13 @@
 
 <body>
 
+<div class="d-flex flex-column" style="min-height: 100vh">
 <g:include view="_nav.gsp"/>
 
 <g:layoutBody/>
 
 <g:include view="_footer.gsp"/>
+</div>
 
 <g:javascript library="application"/>
 

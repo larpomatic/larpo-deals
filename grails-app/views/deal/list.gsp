@@ -24,28 +24,10 @@
     </table>
 </div>
 
-<div class="container">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="uppercase">CURRENT CART</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <ol>
-                       <g:each in="${CurrentCart.deals}" var="cd">
-                            <li>${cd.name}</li>
-                       </g:each>
-                    </ol>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<g:include view="_currentCart.gsp"/>
 
 <div class="container">
+    <h3><span class="badge badge-primary">Deal list</span></h3>
     <table class="table table-striped">
         <thead>
             <tr>

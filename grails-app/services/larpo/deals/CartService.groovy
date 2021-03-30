@@ -14,7 +14,7 @@ class CartService {
         Integer s = 0
         /*if (!cart.deals)
             return s*/
-        System.err.println(cart)
+        // System.err.println(cart)
         for (deal in cart.deals)
             s += deal.price
         return s

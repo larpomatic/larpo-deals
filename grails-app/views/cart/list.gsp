@@ -10,34 +10,7 @@
     <div class="alert alert-error" style="display: block">${flash.message}</div>
 </g:if>
 
-<div class="container">
-    <h3><span class="badge badge-primary">Current Cart</span></h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="uppercase">DEALS</th>
-                <th class="uppercase">COST</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <ol>
-                        <g:each in="${CurrentCart.deals}" var="cd">
-                            <li>${cd.name}</li>
-                        </g:each>
-                    </ol>
-                </td>
-                <td>${cost}€</td>
-            </tr>
-        </tbody>
-    </table>
-    <g:form class="form-inline" name="SaveCart" action="save" controller="cart">
-            <td><label class="sr-only" for="SaveCart">SaveCart</label></td>
-            <td><input type="text" class="form-control mb-2 mr-sm-2" id="searchBar" placeholder="Cart name..." name="SaveCart" value="${SaveCart}"></td>
-            <td><button type="submit" class="btn btn-primary mb-2">save</button></td>
-    </g:form>
-</div>
+<g:include view="_currentCart.gsp"/>
 
 <div class="container">
     <h3><span class="badge badge-primary">Cart list</span></h3>

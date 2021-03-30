@@ -4,28 +4,16 @@ class CartController {
 
     // def index() { }
 
-    /*def list()
-    {
-        List<Deal> deals
-        for (deal in Cart.get(1).deals)
-            deals.add(deal)
-        [deals: deals]
-    }*/
-
     def list()
     {
-        // def cartservice = new CartService()
         Application.NewCurrentCart(session)
         List<Cart> carts = Cart.list()
-        //Integer price = CartService.cost(new Cart())
         Cart CurrentCart = session.CurrentCart
         [carts: carts, CurrentCart: CurrentCart, cost: CartService.cost(CurrentCart)]
     }
 
     def addDealToCart(Integer id)
     {
-        /*if (session.isNew())
-            session["currentCart"] = new Cart(new Date(), "Current Cart").save(failOnError: true, flush: true)*/
         Application.NewCurrentCart(session)
         Deal deal = Deal.get(id)
 
@@ -40,12 +28,11 @@ class CartController {
 
         if (b)
         {
-            session.CurrentCart.addToDeals(deal)//.save(failOnError: true, flush: true)
+            session.CurrentCart.addToDeals(deal)
             flash.message = "Deal added to Current Cart"
         }
 
         redirect(url: "/larpo-deals/deal/list")
-
 
         [deal: deal]
     }
@@ -57,6 +44,6 @@ class CartController {
         NewCart.save(failOnError: true, flush: true)
         flash.message = "Cart saved"
         redirect(url: "/larpo-deals/cart/list")
-        session["CurrentCart"] = new Cart(new Date(), "Current Cart")//.save(failOnError: true, flush: true)
+        session["CurrentCart"] = new Cart(new Date(), "Current Cart")
     }
 }

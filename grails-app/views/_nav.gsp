@@ -1,5 +1,6 @@
 <span>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> --%>
+    <nav class="navbar navbar-expand navbar-light bg-light">
         <a class="navbar-brand" href="/">Larpo-Deals</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,7 +12,7 @@
                 <a class="nav-item nav-link" href="/larpo-deals/deal/list">Deal</a>
                 <a class="nav-item nav-link" href="/larpo-deals/cart/list">Cart</a>
 
-                <a class="nav-item nav-link" href="/larpo-deals/cart/addDealToCart/1">Test</a>
+                <a class="nav-item nav-link" href="/larpo-deals/test">Test</a>
             </div>
         </div>
     </nav>
