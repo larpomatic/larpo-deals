@@ -30,6 +30,7 @@ class CartController {
         {
             session.CurrentCart.addToDeals(deal)
             flash.message = "Deal added to Current Cart"
+            flash.b = "1"
         }
 
         redirect(url: "/larpo-deals/deal/list")
