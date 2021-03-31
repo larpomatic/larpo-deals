@@ -21,9 +21,9 @@ class CartController {
         for (d in session.CurrentCart.deals)
             if (deal.id == d.id)
             {
-                println("already in Current Cart")
                 flash.message = "Deal Already in Current Cart"
                 b = Boolean.FALSE
+                flash.b = "0"
             }
 
         if (b)
