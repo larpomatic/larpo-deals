@@ -25,28 +25,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     --%>
 
-    <%--
-    <script>
-    $(document).ready(function(){
-        $(".show-toast").click(function(){
-            $("#myToast").toast('show');
-        });
-    });
-    </script>
-    __%>
-
-    <%--
-    <script>
-        $('.toast').toast({'autohide': false});
-        $('.toast').toast(); $('.toast').show();
-    </script>
-    --%>
-
-    <script>
-        $('.toast').toast({'autohide': false});
-        $('.toast').toast('show');
-    </script>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title><g:layoutTitle default="Larpo Deals"/></title>
