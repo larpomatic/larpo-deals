@@ -24,7 +24,17 @@
     </table>
 </div>
 
-<g:include view="_currentCart.gsp"/>
+<div class="collapse" id="CurrentCart">
+    <g:include view="_currentCart.gsp"/>
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
+
 
 <div class="container">
     <h3><span class="badge badge-primary">Deal list</span></h3>

@@ -10,7 +10,9 @@
     <g:include view="_toast.gsp"/>
 </g:if>
 
-<g:include view="_currentCart.gsp"/>
+<div class="collapse show" id="CurrentCart">
+    <g:include view="_currentCart.gsp"/>
+</div>
 
 <div class="container">
     <h3><span class="badge badge-primary">Cart list</span></h3>

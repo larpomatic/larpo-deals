@@ -13,6 +13,8 @@
                 <a class="nav-item nav-link" href="/larpo-deals/cart/list">Cart</a>
 
                 <a class="nav-item nav-link" href="/larpo-deals/test">Test</a>
+
+                <button class="btn position-absolute" style="right: 0" type="button" data-toggle="collapse" data-target="#CurrentCart">Your Cart</button>
             </div>
         </div>
     </nav>
