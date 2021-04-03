@@ -36,7 +36,6 @@
 classes
 *.log
 *.swp
-/src
 /out
 /bin
 /*/bin
