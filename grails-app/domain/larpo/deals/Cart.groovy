@@ -14,7 +14,8 @@ class Cart {
     Cart(String name, Date dateCreated) {
         this.name = name
         this.dateCreated = dateCreated
-        lutNbDeals = [0] * (Deal.list().size() + 1)
+        lutNbDeals = [null]
+        lutNbDeals += [0] * (Deal.list().size())
     }
 
     static constraints = {

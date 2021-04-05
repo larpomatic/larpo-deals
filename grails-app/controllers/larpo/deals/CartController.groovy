@@ -28,7 +28,7 @@ class CartController {
         }
 
         currentCart.lutNbDeals[dealId.toInteger()] += 1
-        //TODO message
+        session["DisplayToast"] = true
 
         [currentCart: currentCart]
         redirect action: 'list', controller: 'deal'
@@ -38,6 +38,12 @@ class CartController {
         session["currentCart"].save(failOnError: true, flush: true)
 
         session["currentCart"] = null
+
+        redirect action: 'list', controller: 'cart'
+    }
+
+    def changeName() {
+        session["currentCart"].name = params.cartName
 
         redirect action: 'list', controller: 'cart'
     }

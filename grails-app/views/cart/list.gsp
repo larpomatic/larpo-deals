@@ -27,71 +27,82 @@
 
 <!--
 #################################
-######### CURRENT CART ##########
-#################################
--->
-<g:if test="${session['currentCart'] != null && session['currentCart'].getDeals()[0] != null}">
-    <div class="container">
-        <div class="btn bg-info text-white font-weight-bold rounded border" style="cursor: default">Current cart (${nbDeals})</div>
-        <table class="table table-striped border">
-            <thead>
-            <tr>
-                <th>NAME</th>
-                <th>DEALS</th>
-                <th>PRICE</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>${session['currentCart'].name}</td>
-                    <td>
-                        <g:each in="${session['currentCart'].getDeals()}" var="deal">
-                            ${deal.name + " x " + session['currentCart'].getLutNbDeals()[deal.id as Integer]}
-                            <br>
-                        </g:each>
-                    </td>
-                    <td>$${cost}</td>
-                </tr>
-            </tbody>
-        </table>
-        <g:form controller="cart" action="save">
-            <form class="form-inline">
-                <button type="submit" class="btn btn-primary mb-2">SAVE</button>
-            </form>
-        </g:form>
-    </div>
-</g:if>
-<br><br>
-<!--
-#################################
 ######## ARRAY OF CARTS #########
 #################################
 -->
-<div class="container">
-    <div class="btn bg-info text-white font-weight-bold" style="cursor: default">Cart list</div>
-    <table class="table table-striped border">
-        <thead>
-        <tr>
-            <th>CREATION DATE</th>
-            <th>NAME</th>
-            <th>DEALS</th>
-        </tr>
-        </thead>
-        <tbody>
-        <g:each in="${carts}" var="cart">
-            <tr>
-                <td>${cart.dateCreated.format("dd/mm/yyyy hh:mm")}</td>
-                <td>${cart.name}</td>
-                <td>
-                    <g:each in="${cart.deals}" var="deal">
-                        ${deal.name + " x " + cart.getLutNbDeals()[deal.id as Integer]}
-                        <br>
-                    </g:each>
-                </td>
-            </tr>
-        </g:each>
-        </tbody>
-    </table>
+<div class="d-flex">
+    <div class="d-inline-block w-100">
+        <div class="container">
+            <div class="btn bg-info text-white font-weight-bold" style="cursor: default">Cart list</div>
+            <table class="table table-striped border">
+                <thead>
+                <tr>
+                    <th>CREATION DATE</th>
+                    <th>NAME</th>
+                    <th>DEALS</th>
+                    <th>PRICE</th>
+                </tr>
+                </thead>
+                <tbody>
+                <g:each in="${carts}" var="cart">
+                    <tr>
+                        <td class="w-25">${cart.dateCreated.format("dd/mm/yyyy hh:mm")}</td>
+                        <td class="w-25">${cart.name}</td>
+                        <td class="w-25">
+                            <g:each in="${larpo.deals.DealService.getDealsSorted(cart)}" var="deal">
+                                ${deal.name + " x " + cart.getLutNbDeals()[deal.id as Integer]}
+                                <br>
+                            </g:each>
+                        </td>
+                        <td class="w-25">${larpo.deals.CartService.cost(cart)}</td>
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!--
+#################################
+######### CURRENT CART ##########
+#################################
+-->
+    <div class="d-inline-block">
+        <g:if test="${session['currentCart'] != null && session['currentCart'].getDeals()[0] != null}">
+            <div class="container" style="width: 200px">
+                <div class="btn text-white font-weight-bold rounded border" style="background-color: deepskyblue; cursor: default">
+                    <div class="d-flex float-left">
+                        <g:form action="changeName">
+                            <input name="cartName" value="${cartName}" class="form-control" placeholder="${session['currentCart'].getName()}">
+                        </g:form>
+                        <div class="d-inline-block" style="margin-left: 5px">
+                            (${nbDeals})
+                        </div>
+                    </div>
+                </div>
+                <table class="table border">
+                    <tbody>
+                    <tr>
+                        <td>$${cost}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <g:each in="${larpo.deals.DealService.getDealsSorted(session["currentCart"])}" var="deal">
+                                ${deal.name + " x " + session['currentCart'].getLutNbDeals()[deal.id as Integer]}
+                                <br>
+                            </g:each>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <g:form controller="cart" action="save">
+                    <form class="form-inline">
+                        <button type="submit" class="btn btn-primary mb-2">SAVE</button>
+                    </form>
+                </g:form>
+            </div>
+        </g:if>
+    </div>
 </div>
 
 <g:include view="_footer.gsp"/>

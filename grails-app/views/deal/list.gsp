@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,22 +29,51 @@
 ############ SEARCH #############
 #################################
 -->
+
+<g:if test="${session["DisplayToast"]}">
+    <div class="toast float-right" data-autohide="false">
+        <div class="toast-header">
+            <svg class=" rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <rect fill="#77DD77" width="100%" height="100%" /></svg>
+            <strong class="mr-auto">Larpo-Deals</strong>
+            <small class="text-muted">0 seconds ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Your deal has been added to the cart!
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".toast").toast('show');
+        });
+    </script>
+    <div style="display: none">
+        ${session["DisplayToast"] = false}
+    </div>
+</g:if>
+
+<!--
+#################################
+############ SEARCH #############
+#################################
+-->
+
 <div class="container">
     <div class="p-3 mb-2 bg-light rounded border">
         <g:form action="list">
             <form class="form-inline">
-                <label class="sr-only" for="inlineFormInputName2">Name</label>
                 <div class="input-group">
-                        <input type="text" name="userSearch"
-                               value="${userSearch}" class="form-control mb-2 mr-sm-2 col-12"
-                               id="inlineFormInputName2" placeholder="Search by name...">
-                        <button type="submit" class="btn btn-primary mb-2 input-group-addon">Search</button>
+                    <input name="userSearch" value="${userSearch}" class="form-control mb-2 mr-sm-2 col-12" placeholder="Search by name...">
+                    <button type="submit" class="btn btn-primary mb-2 input-group-addon">Search</button>
                 </div>
             </form>
         </g:form>
     </div>
 </div>
-
 <!--
 #################################
 ########### CART COST ###########
@@ -51,7 +82,7 @@
 <br/>
 <div class="container">
     <div class="col">
-        <div class="p-3 bg-dark rounded text-white col-lg-2 offset-lg-10">
+        <div class="p-3 bg-dark rounded text-white col-lg-2" style="margin-left: 915px">
             <div class="d-flex">
                 <div class="d-inline-block">
                     Cart Cost:
