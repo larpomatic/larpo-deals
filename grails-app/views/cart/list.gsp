@@ -18,6 +18,7 @@
 <g:include view="_nav.gsp"/>
 <body>
 
+<%--View of the session cart if not empty--%>
 <g:if test="${session.cart != null}">
     <div class="container">
         <h1>Current Cart</h1>
@@ -48,6 +49,7 @@
         </table>
 
 
+    <%--view of the DealController saveCart--%>
         <g:form action="SaveCart">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -79,6 +81,7 @@
         </thead>
         <tbody>
 
+        <%--View of the CartController list--%>
         <g:each in="${carts}" var="c">
             <tr>
                 <td>${c.dateCreated.format("dd/MM/yyyy hh:mm")}</td>

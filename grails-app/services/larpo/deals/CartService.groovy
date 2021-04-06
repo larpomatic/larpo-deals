@@ -5,6 +5,8 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CartService {
 
+
+    //return the size of the given cart
     static Integer cost(Cart cart) {
         if (cart == null) {
             return 0

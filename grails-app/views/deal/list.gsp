@@ -5,7 +5,6 @@
   Time: 18:15
 --%>
 
-
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -17,6 +16,7 @@
 <g:include view="_nav.gsp"/>
 
 
+<%--View of the message after add deal to cart--%>
 <g:if test="${session.message != null}">
     <div class="alert alert-primary" role="alert">
         ${session.message}
@@ -30,6 +30,7 @@
 
 
 <div class="container">
+<%--Display the price of the session cart if not empty--%>
     <g:if test="${session.cart != null}">
         <br>
         <button type="button" class="btn btn-primary" disabled>session cart price: ${cartPrice} €</button>
@@ -47,6 +48,7 @@
         </tr>
         </thead>
         <tbody>
+        <%--view of the search input of DealController list--%>
         <g:form action="list">
 
             <div class="input-group mb-2 mr-sm-2">
@@ -57,6 +59,7 @@
             </div>
         </g:form>
 
+        <%--View of the return of DealController list--%>
         <g:each in="${deals}" var="d">
             <tr>
                 <td><img src= ${d.caption}></td>

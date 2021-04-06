@@ -4,6 +4,7 @@ import org.hibernate.Criteria
 
 class DealController {
 
+    //list all deal, with if not empty a name filter
     def list() {
         List<Deal> deals = Deal.list()
 

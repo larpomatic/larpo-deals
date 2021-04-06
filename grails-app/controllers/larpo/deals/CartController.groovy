@@ -3,12 +3,14 @@ package larpo.deals
 class CartController {
 
 
+    //add the deal to the session cart whit the id in param.dealToAdd
     def addDealToCart() {
         if (session.cart == null) {
             session.cart = new Cart("Session cart", new Date(), [])
         }
 
 
+        // get the deal with the id
         def c = Deal.createCriteria()
         List<Deal> dealsList = c.list {
             eq('id', params.dealToAdd.toLong())
@@ -35,6 +37,7 @@ class CartController {
     }
 
 
+    //list all cart in the database
     def list() {
         List<Cart> carts = Cart.list()
 
@@ -42,6 +45,7 @@ class CartController {
         [carts: carts, cartPrice: CartService.cost(session.cart)]
     }
 
+    //save the session cart in the cart database
     def SaveCart() {
         if (session.cart == null) {
             return
