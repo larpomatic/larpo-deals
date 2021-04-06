@@ -9,7 +9,7 @@ class DealControllerSpec extends Specification implements ControllerUnitTest<Dea
     @Override
     Class[] getDomainClassesToMock()
     {
-        return [Deal]
+        return [Deal, Cart]
     }
 
     def setupData()
@@ -53,5 +53,12 @@ class DealControllerSpec extends Specification implements ControllerUnitTest<Dea
         given: setupData(); params.search = "Bike"
         when: def res = controller.list(params)
         then: res.deals.size() == 0
+    }
+
+    void "good autocompletion T-ruck search" ()
+    {
+        given: setupData(); params.search = "T"
+        when: def res = controller.list(params)
+        then: res.deals.size() == 1 && res.deals[0].name == "Truck"
     }
 }
