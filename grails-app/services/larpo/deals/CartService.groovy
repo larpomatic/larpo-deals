@@ -5,6 +5,10 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CartService {
 
+    /**
+     * @param cart
+     * @return the total cost of a cart, adding all the prices of the Deals inside of it
+     */
     static Integer cost(Cart cart) {
         if (cart == null){
             return 0
@@ -19,6 +23,11 @@ class CartService {
         return cost
     }
 
+    /**
+     *
+     * @param cart
+     * @return the number of deals inside of a cart
+     */
     static Integer getNbDeals(Cart cart){
         if (cart == null){
             return 0

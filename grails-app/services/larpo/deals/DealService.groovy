@@ -33,9 +33,15 @@ class DealService {
         return deals;
     }
 
+    /**
+     * @param lutNbDeals
+     * @param deals
+     * @param i
+     * @return true if the two deals at pos (i) and (i + 1) must be swapped, false otherwise
+     */
     private static boolean mustSwapDeals(Integer[] lutNbDeals, Deal[] deals, Integer i){
-        return (lutNbDeals[deals[i].id as Integer] < lutNbDeals[deals[i + 1].id as Integer]
-                || (deals[i].name > deals[i + 1].name
-                    && lutNbDeals[deals[i].id as Integer] == lutNbDeals[deals[i + 1].id as Integer]))
+        return (lutNbDeals[deals[i].id as Integer] < lutNbDeals[deals[i + 1].id as Integer]             // order by number of deals
+                || (deals[i].name > deals[i + 1].name                                                   // order by name
+                    && lutNbDeals[deals[i].id as Integer] == lutNbDeals[deals[i + 1].id as Integer]))   // order by name
     }
 }

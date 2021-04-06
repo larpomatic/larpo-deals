@@ -3,6 +3,10 @@ package larpo.deals
 import org.grails.datastore.mapping.query.api.BuildableCriteria
 
 class CartController {
+
+    /**
+     * @return the list of carts that have been saved + the number of deals of the current cart
+     */
     def list() {
         Cart[] carts = Cart.list()
 
@@ -11,6 +15,9 @@ class CartController {
         [carts: carts, cost: cost, nbDeals: CartService.getNbDeals(session["currentCart"] as Cart)]
     }
 
+    /**
+     * Adds a deal to the current cart. Throws exception if not possible
+     */
     def addDealToCart() {
         if (session['currentCart'] == null){
             session['currentCart'] = new Cart("current cart", null)
@@ -34,6 +41,9 @@ class CartController {
         redirect action: 'list', controller: 'deal'
     }
 
+    /**
+     * Saves the current cart
+     */
     def save() {
         session["currentCart"].save(failOnError: true, flush: true)
 
@@ -42,12 +52,19 @@ class CartController {
         redirect action: 'list', controller: 'cart'
     }
 
+    /**
+     * changes the name of the current cart
+     */
     def changeName() {
         session["currentCart"].name = params.cartName
 
         redirect action: 'list', controller: 'cart'
     }
 
+    /**
+     * @param dealId
+     * @return the deal that has corresponding id. Throws exception if there is no such existing deal
+     */
     private Deal getDeal(Long dealId){
         BuildableCriteria c = Deal.createCriteria()
 
@@ -62,6 +79,10 @@ class CartController {
         return deals[0]
     }
 
+    /**
+     * @param dealId
+     * @return true if a deal is inside of the current cart, false otherwise
+     */
     private Boolean dealInCart(Long dealId){
         Cart currentCart = session['currentCart'] as Cart
 

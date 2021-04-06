@@ -56,7 +56,7 @@
                                 <br>
                             </g:each>
                         </td>
-                        <td class="w-25">${larpo.deals.CartService.cost(cart)}</td>
+                        <td class="w-25">$${larpo.deals.CartService.cost(cart)}</td>
                     </tr>
                 </g:each>
                 </tbody>
