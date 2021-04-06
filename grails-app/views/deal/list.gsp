@@ -25,7 +25,8 @@
 </div>
 
 <div class="collapse" id="CurrentCart">
-    <g:include view="_currentCart.gsp"/>
+    <%-- <g:render view="_currentCart.gsp"/> --%>
+    <g:render template="/currentCart"/>
 </div>
 
 <div class="container">

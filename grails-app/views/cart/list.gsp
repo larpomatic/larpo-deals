@@ -11,7 +11,8 @@
 </g:if>
 
 <div class="collapse show" id="CurrentCart">
-    <g:include view="_currentCart.gsp"/>
+    <%-- <g:include view="_currentCart.gsp"/> --%>
+    <g:render template="/currentCart"/>
 </div>
 
 <div class="container">
