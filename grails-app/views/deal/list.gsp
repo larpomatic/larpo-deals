@@ -20,6 +20,17 @@
 
     <br>
 
+    <div class="d-flex flex-row-reverse">
+        <div class="badge text-dark" style="background-color: #dee2e6">
+            <h6>
+                Cart cost:
+                <span class="badge bg-info text-light">${totalPrice} €</span>
+            </h6>
+        </div>
+    </div>
+
+    <br>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -36,10 +47,10 @@
                 <td><img class="col-caption" src="${d.caption}"/></td>
                 <td>${d.name}</td>
                 <td>${d.description}</td>
-                <td>${d.price}</td>
+                <td>${d.price} €</td>
                 <td>
                     <g:form name="AddForm" url="[action:'addDealToCart', controller:'cart']" class="d-flex">
-                        <button name="dealId" class="btn btn-secondary" type="submit" value="${d.id}">ADD</button>
+                        <button name="dealId" class="btn btn-primary" type="submit" value="${d.id}">ADD</button>
                     </g:form>
                 </td>
             </tr>

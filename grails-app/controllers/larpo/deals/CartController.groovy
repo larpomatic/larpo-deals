@@ -1,9 +1,15 @@
 package larpo.deals
 
 class CartController {
+    CartService cartService
+
     def list() {
-        [currentCart: session['currentCart']]
-        [carts: Cart.list()]
+        Cart currentCart = session['currentCart'] as Cart
+        int totalPrice = 0
+        if (currentCart) {
+            totalPrice = cartService.cost(currentCart.deals)
+        }
+        [currentCart: currentCart, carts: Cart.list(), totalPrice: totalPrice]
     }
 
     def addDealToCart() {
@@ -12,7 +18,7 @@ class CartController {
         }
 
         if (!isDealInCart(params.dealId as long)) {
-            Cart currentCart = session['currentCart']
+            Cart currentCart = session['currentCart'] as Cart
             currentCart.addToDeals(getDeal(params.dealId as long))
         }
 
@@ -20,9 +26,15 @@ class CartController {
     }
 
     def save() {
-        Cart current = session['currentCart']
-        current.save(failOnError: true)
+        Cart currentCart = session['currentCart'] as Cart
+        if (params.rename) {
+            currentCart.name = params.rename
+        }
+        currentCart.cost = cartService.cost(currentCart.deals)
+        currentCart.save(failOnError: true, flush: true)
         session['currentCart'] = null
+
+        redirect action: 'list', controller: 'cart'
     }
 
     private Deal getDeal(long dealId) {
@@ -34,7 +46,7 @@ class CartController {
     }
 
     private Boolean isDealInCart(long dealId) {
-        Cart currentCart = session['currentCart']
+        Cart currentCart = session['currentCart'] as Cart
 
         for (deal in currentCart.deals) {
             if (deal.id == dealId) {
