@@ -28,8 +28,8 @@
         <tbody>
             <g:each in="${carts}" var="c">
                 <tr>
-                    <td>${c.dateCreated.format("dd/MM/yyy HH:mm")}</td>
-                    <%-- <td>${c.dateCreated}</td> --%>
+                    <%-- <td>${c.dateCreated.format("dd/MM/yyy HH:mm")}</td> --%>
+                    <td><g:dateformat>${c.dateCreated}</g:dateformat></td>
                     <td>${c.name}</td>
                     <td>
                         <ol>

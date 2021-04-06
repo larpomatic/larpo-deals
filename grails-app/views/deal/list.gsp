@@ -49,7 +49,7 @@
                     <td>${d.price}€</td>
                     <td>
                         <g:form name="addDealToCart" controller="cart" action="addDealToCart" id="${d.id}">
-                            <button type="submit" class="btn btn-secondary" id="addDealToCartButton"
+                            <button type="submit" class="btn btn-primary" id="addDealToCartButton"
                                     name="addDealToCart"  value="${addDealToCart}">ADD</button>
                         </g:form>
                     </td>
