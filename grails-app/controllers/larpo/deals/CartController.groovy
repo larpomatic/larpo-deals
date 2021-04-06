@@ -4,9 +4,8 @@ class CartController {
 
 
     def addDealToCart() {
-        if (session.cart == null)
-        {
-            session.cart = new Cart("Session cart", new Date(),[])
+        if (session.cart == null) {
+            session.cart = new Cart("Session cart", new Date(), [])
         }
 
 
@@ -17,10 +16,8 @@ class CartController {
 
         boolean isAlreadyInDealsList = false
 
-        for (Deal deal in session.cart.deals)
-        {
-            if (deal.id == params.dealToAdd.toLong())
-            {
+        for (Deal deal in session.cart.deals) {
+            if (deal.id == params.dealToAdd.toLong()) {
                 isAlreadyInDealsList = true
                 break
             }
@@ -30,9 +27,7 @@ class CartController {
             session.cart.addToDeals(dealsList[0])
             session.cart.price = CartService.cost(session.cart)
             session.message = "Deal add in cart"
-        }
-        else
-        {
+        } else {
             session.message = "Deal already in cart"
         }
 
@@ -44,11 +39,16 @@ class CartController {
         List<Cart> carts = Cart.list()
 
 
-
         [carts: carts, cartPrice: CartService.cost(session.cart)]
     }
 
     def SaveCart() {
+        if (session.cart == null) {
+            return
+        }
+        if (params.cartName != null && params.cartName != '') {
+            session.cart.name = params.cartName
+        }
         session.cart.save(failOnError: true, flush: true)
         session.cart = null
 

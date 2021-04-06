@@ -7,7 +7,7 @@ class Deal {
     String caption
     Integer price
 
-    Deal(String caption,String name, String description, Integer price) {
+    Deal(String caption, String name, String description, Integer price) {
         this.name = name
         this.description = description
         this.caption = caption

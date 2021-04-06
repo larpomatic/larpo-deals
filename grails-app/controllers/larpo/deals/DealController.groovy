@@ -8,14 +8,12 @@ class DealController {
         List<Deal> deals = Deal.list()
 
         def c = Deal.createCriteria()
-        if (params.search != null)
-        {
+        if (params.search != null) {
             deals = c.list
-                {
-                    like('name', '%' + params.search + '%')
-                }
+                    {
+                        ilike('name', '%' + params.search + '%')
+                    }
         }
-
 
 
         [deals: deals, cartPrice: CartService.cost(session.cart)]
