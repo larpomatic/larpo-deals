@@ -46,7 +46,9 @@
                 <tbody>
                 <g:each in="${carts}" var="cart">
                     <tr>
-                        <td class="w-25">${cart.dateCreated.format("dd/mm/yyyy hh:mm")}</td>
+                        <td class="w-25">
+                            <g:dateFormat format="dd/mm/yyyy HH:mm" value="${cart.dateCreated}"></g:dateFormat>
+                        </td>
                         <td class="w-25">${cart.name}</td>
                         <td class="w-25">
                             <g:each in="${larpo.deals.DealService.getDealsSorted(cart)}" var="deal">
@@ -106,8 +108,6 @@
 </div>
 
 <g:include view="_footer.gsp"/>
-
-<g:javascript library="application"/>
 
 </body>
 </html>

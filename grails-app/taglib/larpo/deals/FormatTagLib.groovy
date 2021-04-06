@@ -1,0 +1,8 @@
+package larpo.deals
+import java.text.SimpleDateFormat
+
+class FormatTagLib {
+    def dateFormat = { attrs, body ->
+        out << new SimpleDateFormat(attrs.format as String).format(attrs.value)
+    }
+}

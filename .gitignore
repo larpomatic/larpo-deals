@@ -36,7 +36,6 @@
 classes
 *.log
 *.swp
-/src
 /out
 /bin
 /*/bin
@@ -58,7 +57,6 @@ stacktrace.log
 /dist
 /idea-target
 target
-/build
 /grails.iws
 .gradle
 .DS_Store
