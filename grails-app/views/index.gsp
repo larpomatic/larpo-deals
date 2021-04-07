@@ -4,25 +4,29 @@
     <meta name="layout" content="main"/>
 </head>
 
-<body>
+<body >
 
-<div class="container mt-4 row-md-12">
+<div class="container mt-4 row-md-12 ">
     <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
+        <h1 class="display-4">Welcome to Larpo Deals</h1>
 
-        <p class="lead">This a dummy application to learn Grails. You will learn how to build an application to manage deals.</p>
+        <p class="lead">Are you ready to make somme shopping</p>
         <hr class="my-4">
 
-        <p>It uses Bootstrap 4</p>
-
+        <p>It's shop time</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="https://getbootstrap.com/docs/4.0/layout/overview/"
-               role="button">Learn more</a>
-            <a class="btn btn-primary btn-lg" href="https://github.com/larpomatic/larpo-deals"
-               role="button">Github Repository</a>
+            <a class="btn btn-primary btn-lg" href="/deal/list"
+               role="button">Go shopping</a>
+
+            <a class="btn btn-primary btn-lg" href="/cart/list"
+               role="button">Your carts</a>
+
         </p>
+
     </div>
 </div>
+
+
 
 </body>
 </html>

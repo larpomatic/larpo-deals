@@ -1,6 +1,6 @@
 <span>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Larpo-Deals</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand " href="#">Larpo-Deals</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,3 +16,8 @@
         </div>
     </nav>
 </span>
+
+<style>
+    body {background: #818182;}
+    img {height: 100%; width: 100%;}
+</style>

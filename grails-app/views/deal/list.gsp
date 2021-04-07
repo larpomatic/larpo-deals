@@ -41,7 +41,7 @@
         <thead>
         <tr>
             <th class="uppercase">caption</th>
-            <th class="uppercase">name</th>
+            <th class="uppercase">name &emsp; &emsp; &emsp;</th>
             <th class="uppercase">Description</th>
             <th class="uppercase">price &emsp;</th>
             <th class="uppercase">#</th>
