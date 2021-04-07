@@ -19,6 +19,7 @@ class DealControllerSpec extends Specification implements ControllerUnitTest<Dea
 
     def setup()
     {
+        setupData();
     }
 
     def cleanup()
@@ -32,14 +33,14 @@ class DealControllerSpec extends Specification implements ControllerUnitTest<Dea
 
     void "empty search" ()
     {
-        given: setupData(); params.search = null
+        given: params.search = null
         when: def res = controller.list(params)
         then: res.deals.size() == 3
     }
 
     void "good Bus search" ()
     {
-        given: setupData(); params.search = "Bus"
+        given: params.search = "Bus"
         when: def res = controller.list(params)
         then:
             res.deals.size() == 2
@@ -50,14 +51,14 @@ class DealControllerSpec extends Specification implements ControllerUnitTest<Dea
     }
     void "bad Bike search" ()
     {
-        given: setupData(); params.search = "Bike"
+        given: params.search = "Bike"
         when: def res = controller.list(params)
         then: res.deals.size() == 0
     }
 
     void "good autocompletion T-ruck search" ()
     {
-        given: setupData(); params.search = "T"
+        given: params.search = "T"
         when: def res = controller.list(params)
         then: res.deals.size() == 1 && res.deals[0].name == "Truck"
     }

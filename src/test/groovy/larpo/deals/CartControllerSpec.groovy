@@ -17,7 +17,9 @@ class CartControllerSpec extends Specification implements ControllerUnitTest<Car
         new BootStrap().init.run()
     }
 
-    def setup() {
+    def setup()
+    {
+        setupData()
     }
 
     def cleanup() {
@@ -30,7 +32,6 @@ class CartControllerSpec extends Specification implements ControllerUnitTest<Car
 
     void "initial carts" ()
     {
-        given: setupData()
         when: def res = controller.list()
         then: res.carts.size() == 2
     }
@@ -38,7 +39,6 @@ class CartControllerSpec extends Specification implements ControllerUnitTest<Car
     void "creation cart" ()
     {
         given:
-            setupData()
             session["CurrentCart"] = new Cart(new Date(), "Test")
             params.SaveCart = "Test"
         when:
@@ -50,12 +50,8 @@ class CartControllerSpec extends Specification implements ControllerUnitTest<Car
 
     void "Add Deal To Cart" ()
     {
-        given:
-            setupData()
-            session["CurrentCart"] = new Cart(new Date(), "Test")
+        given: session["CurrentCart"] = new Cart(new Date(), "Test")
         when: controller.addDealToCart(1)
         then: session.CurrentCart.deals.size() == 1
-
-
     }
 }
