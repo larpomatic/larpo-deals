@@ -44,7 +44,7 @@
         <tbody>
             <g:each in="${deals}" var="d">
                 <tr>
-                    <td><img class="col-caption" src="${d.caption}"></td>
+                    <td><img class="col-caption" src="${d.caption}" style="width: 256px; height: 256px"></td>
                     <td>${d.name}</td>
                     <td>${d.description}</td>
                     <td>${d.price}€</td>
