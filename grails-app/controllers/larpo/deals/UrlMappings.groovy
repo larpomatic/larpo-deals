@@ -17,7 +17,8 @@ class UrlMappings {
 
         "/larpo-deals/GN"(view:"/GN") // Easter Egg ;)
 
-        "/"(view:"/index")
+        // "/"(view:"/index")
+        "/"(redirect:"/larpo-deals/deal/list")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
