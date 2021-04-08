@@ -9,7 +9,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(redirect:'/deal/list')
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

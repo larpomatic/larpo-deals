@@ -71,7 +71,7 @@
 
 <div class="container">
     <div class="p-3 mb-2 bg-light rounded border">
-        <g:form action="list">
+        <g:form action="list" controller="deal">
             <form class="form-inline">
                 <div class="input-group">
                     <input name="userSearch" value="${userSearch}" class="form-control mb-2 mr-sm-2 col-12" placeholder="Search by name...">
