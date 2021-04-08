@@ -13,6 +13,10 @@ class Cart {
         this.dateCreated = dateCreated
     }
 
+    static mapping = {
+        deals cascade: 'all-delete-orphan'
+    }
+
     static constraints = {
     }
 }
