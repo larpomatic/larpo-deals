@@ -9,7 +9,6 @@ class CartServiceSpec extends Specification
 
     @Override
     Class[] getDomainClassesToMock() {
-        // Liste des domains utilisés par le contrôleur
         return [Deal, Cart]
     }
 

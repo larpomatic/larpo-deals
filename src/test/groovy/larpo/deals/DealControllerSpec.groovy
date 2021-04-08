@@ -10,11 +10,9 @@ class DealControllerSpec extends Specification
 
     @Override
     Class[] getDomainClassesToMock() {
-        // Liste des domains utilisés par le contrôleur
         return [Deal]
     }
 
-    // Methode pour initialiser la BDD
     def setup() {
         Random random = new Random()
         new Deal("http://2.bp.blogspot.com/-O8H8VwjsgHQ/UTSApHY3M_I/AAAAAAAAAhU/AlSeJgJ3ijE/s400/monster-motorbike-1-big.jpg", "Truck", "loremIpsum", random.nextInt(10000)).save(failOnError: true)

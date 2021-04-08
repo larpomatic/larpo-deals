@@ -10,6 +10,7 @@ class DealController {
             totalPrice = cartService.cost(currentCart.deals)
         }
 
+        // If user searched for something, return corresponding deals
         if (params.search) {
             def c = Deal.createCriteria()
             def deals = c.list
@@ -18,6 +19,7 @@ class DealController {
                     }
             [deals: deals, totalPrice: totalPrice]
         }
+        // Else, return all the deals
         else {
             [deals: Deal.list(), totalPrice: totalPrice]
         }
