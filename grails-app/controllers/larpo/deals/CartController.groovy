@@ -60,6 +60,7 @@ class CartController {
             session.cart.name = params.wish
         }
         session.cart.save(failOnError: true, flush:true)
+        session["DisplayCartToast"] = true
         session.cart = null
         redirect(controller: "Cart", action: "list")
     }

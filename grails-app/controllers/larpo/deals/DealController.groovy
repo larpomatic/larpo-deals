@@ -27,4 +27,32 @@ class DealController {
         [deals: deals, price:price]
     }
 
+    def saveCurrentDeal()
+    {
+        Integer price = 0
+        String name = "unnamed"
+        String description = "loremIpsum"
+        String caption = "https://img.icons8.com/plasticine/2x/truck.png"
+        if (params.price != null)
+        {price = params.price.toInteger()}
+        if (params.name.size() != 0)
+        {name = params.name}
+        if (params.description.size() != 0)
+        {description = params.description}
+        if (params.caption.size() != 0)
+        {caption = params.caption}
+
+        if (params.price.toInteger() < 0)
+        {
+            session["DisplayWrongDealToast"] = true
+        }
+        else {
+            Deal newDeal = new Deal(caption, name, description, price).save(failOnError: true)
+            session["DisplayDealToast"] = true
+        }
+
+
+        redirect(controller: "Deal", action: "list")
+    }
+
 }

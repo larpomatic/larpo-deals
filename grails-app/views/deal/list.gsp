@@ -28,7 +28,7 @@
     </div>
 </g:if>
 
-%{--Toast message if the deal os already in the current cart--}%
+%{--Toast message if the deal is already in the current cart--}%
 <g:if test="${session["DisplayToasts"]}">
     <div  class="toast float-right" data-animation="true">
         <div class="toast-header bg-warning text-white">
@@ -38,6 +38,31 @@
 
     <div style="display: none">
         ${session["DisplayToasts"] = false}
+    </div>
+</g:if>
+%{--Toast message if the deal is add to the market--}%
+<g:if test="${session["DisplayDealToast"]}">
+    <div  class="toast float-right" data-animation="true" class="toast">
+        <div class="toast-header bg-success text-white">
+            <strong class="mr-auto">Your deal is now available on the market place! </strong>
+        </div>
+    </div>
+
+    <div style="display: none">
+        ${session["DisplayDealToast"] = false}
+    </div>
+</g:if>
+
+%{--Toast message if the deal have negative price--}%
+<g:if test="${session["DisplayWrongDealToast"]}">
+    <div  class="toast float-right" data-animation="true">
+        <div class="toast-header bg-danger text-white">
+            <strong class="mr-auto">Price must be positive. </strong>
+        </div>
+    </div>
+
+    <div style="display: none">
+        ${session["DisplayWrongDealToast"] = false}
     </div>
 </g:if>
 
@@ -89,6 +114,17 @@
             </tr>
         </g:each>
         </tbody>
+    </table>
+</div>
+<div class="container">
+    <table>
+        <g:form name="save" action="saveCurrentDeal"  controller="Deal">
+            <th><input type="text" class="form-control" placeholder="Add a name" name="name" value="${name}"></th>
+            <th><input type="number" class="form-control" placeholder="Add a price" name="price" value="${price}"></th>
+            <th><input type="text" class="form-control" placeholder="Add a description" name="description" value="${description}"></th>
+            <th><input type="text" class="form-control" placeholder="Add a caption" name="caption" value="${caption}"></th>
+            <th><button class="btn btn-outline-info" type="submit"><h5>Add your own Deal</h5></button></th>
+        </g:form>
     </table>
 </div>
 

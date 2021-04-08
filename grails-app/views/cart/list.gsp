@@ -13,6 +13,19 @@
 
 <body>
 
+%{--Toast to inform that the current cart has been saved--}%
+<g:if test="${session["DisplayCartToast"]}">
+    <div  class="toast float-right" data-animation="true" class="toast">
+        <div class="toast-header bg-success text-white">
+            <strong class="mr-auto">Your cart is now saved ! </strong>
+        </div>
+    </div>
+
+    <div style="display: none">
+        ${session["DisplayCartToast"] = false}
+    </div>
+</g:if>
+
 %{--show the current cart to the user and its content--}%
 
 <g:if test="${session.cart}">
