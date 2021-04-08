@@ -38,7 +38,7 @@
             <th class="uppercase">NAME</th>
             <th class="uppercase">DESCRIPTION</th>
             <th class="uppercase">PRICE</th>
-            <th class="uppercase">#</th>
+            <th class="uppercase"></th>
         </tr>
         </thead>
         <tbody>
@@ -50,7 +50,7 @@
                 <td>${d.price} €</td>
                 <td>
                     <g:form name="AddForm" url="[action:'addDealToCart', controller:'cart']" class="d-flex">
-                        <button name="dealId" class="btn btn-primary" type="submit" value="${d.id}">ADD</button>
+                        <button name="dealId" class="btn btn-secondary" type="submit" value="${d.id}">ADD</button>
                     </g:form>
                 </td>
             </tr>

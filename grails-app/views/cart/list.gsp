@@ -25,7 +25,7 @@
         <tr>
             <th class="uppercase">NAME</th>
             <th class="uppercase">DEAL</th>
-            <th class="uppercase">#</th>
+            <th class="uppercase"></th>
         </tr>
         </thead>
         <tbody>
@@ -41,10 +41,11 @@
                         <input class="form-control me-2" placeholder="Rename current cart" aria-label="Rename current cart" name="rename">
                     </td>
                     <td>
-                        <g:each in="${c.deals}" var="d">
-                            ${d.name}
-                            <br/>
-                        </g:each>
+                        <ol>
+                            <g:each in="${c.deals}" var="d">
+                                <li>${d.name}</li>
+                            </g:each>
+                        </ol>
                     </td>
                     <td>
                         <button class="btn btn-secondary" type="submit">SAVE</button>
@@ -77,10 +78,11 @@
                 <td>${c.dateCreated.format("dd/MM/yyyy hh:mm")}</td>
                 <td>${c.name}</td>
                 <td>
-                    <g:each in="${c.deals}" var="d">
-                        ${d.name}
-                        <br/>
-                    </g:each>
+                    <ol>
+                        <g:each in="${c.deals}" var="d">
+                            <li>${d.name}</li>
+                        </g:each>
+                    </ol>
                 </td>
                 <td>${c.cost} €</td>
             </tr>
