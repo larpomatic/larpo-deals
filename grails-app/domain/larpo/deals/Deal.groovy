@@ -1,5 +1,6 @@
 package larpo.deals
 
+//Deal model with a name, a description, caption and a price
 class Deal {
 
     String name
