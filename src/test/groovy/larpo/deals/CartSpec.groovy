@@ -3,9 +3,16 @@ package larpo.deals
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class CartSpec extends Specification implements DomainUnitTest<Cart> {
+class CartSpec extends Specification implements DomainUnitTest<Cart>
+{
+    def setupData()
+    {
+        new BootStrap().init.run()
+    }
 
-    def setup() {
+    def setup()
+    {
+        setupData()
     }
 
     def cleanup() {

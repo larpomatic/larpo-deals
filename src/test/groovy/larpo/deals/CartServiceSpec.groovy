@@ -6,7 +6,6 @@ import spock.lang.Specification
 
 class CartServiceSpec extends Specification implements ServiceUnitTest<CartService>, DataTest
 {
-
     @Override
     Class[] getDomainClassesToMock()
     {
@@ -42,5 +41,4 @@ class CartServiceSpec extends Specification implements ServiceUnitTest<CartServi
     {
         expect: service.cost(Cart.list()[0]) == Deal.list()[0].price + Deal.list()[1].price
     }
-
 }

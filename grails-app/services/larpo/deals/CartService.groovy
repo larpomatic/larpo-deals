@@ -6,7 +6,6 @@ import grails.gorm.transactions.Transactional
 class CartService {
 
     /*def serviceMethod() {
-
     }*/
 
     static Integer cost(Cart cart)

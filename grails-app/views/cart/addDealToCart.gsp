@@ -13,7 +13,6 @@
 
 <body>
 
-<%-- <g:message code="Deal added to CurrentCart" /> --%>
 <g:message message="Deal added to CurrentCart" />
 
 </body>

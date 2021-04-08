@@ -3,8 +3,8 @@ package larpo.deals
 import grails.testing.web.taglib.TagLibUnitTest
 import spock.lang.Specification
 
-class DateFormatTagLibSpec extends Specification implements TagLibUnitTest<DateFormatTagLib> {
-
+class DateFormatTagLibSpec extends Specification implements TagLibUnitTest<DateFormatTagLib>
+{
     def setup() {
     }
 

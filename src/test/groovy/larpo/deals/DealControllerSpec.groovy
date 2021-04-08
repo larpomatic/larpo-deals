@@ -4,8 +4,8 @@ import grails.testing.gorm.DataTest
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class DealControllerSpec extends Specification implements ControllerUnitTest<DealController>, DataTest {
-
+class DealControllerSpec extends Specification implements ControllerUnitTest<DealController>, DataTest
+{
     @Override
     Class[] getDomainClassesToMock()
     {

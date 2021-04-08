@@ -15,7 +15,7 @@ class UrlMappings {
             }
         }
 
-        "/larpo-deals/test"(view:"/test")
+        "/larpo-deals/GN"(view:"/GN") // Easter Egg ;)
 
         "/"(view:"/index")
         "500"(view:'/error')
